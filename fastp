@@ -2,7 +2,7 @@ The preprocessing for FastQ files was provided by this tool:
 https://github.com/OpenGene/fastp.git
 command line
 #newis1.sh_bacteriocytes november 
-'fastp -i CflBact2_EKDL230016317-1A_H7LCTDSX7_L2_1.fq.gz -o outCflBact_N1_L2_1.fq.gz -I CflBact2_EKDL230016317-1A_H7LCTDSX7_L2_2.fq.gz -O outCflBact_N1_L2_2.fq.gz --unpaired1 --unpaired_bact1 --dont_overwrite --length_required 40 --low_complexity_filter --detect_adapter_for_pe --correction --trim_front1 10 --trim_tail1 5 --trim_poly_g --overrepresentation_analysis --dedup'  
+fastp -i CflBact2_EKDL230016317-1A_H7LCTDSX7_L2_1.fq.gz -o outCflBact_N1_L2_1.fq.gz -I CflBact2_EKDL230016317-1A_H7LCTDSX7_L2_2.fq.gz -O outCflBact_N1_L2_2.fq.gz --unpaired1 --unpaired_bact1 --dont_overwrite --length_required 40 --low_complexity_filter --detect_adapter_for_pe --correction --trim_front1 10 --trim_tail1 5 --trim_poly_g --overrepresentation_analysis --dedup  
 
 #newis2.sh_bact nov2
 fastp -i CflBact2_EKDL230016317-1A_H7MGYDSX7_L2_1.fq.gz -o outCflBact_N2_L2_1.fq.gz -I CflBact2_EKDL230016317-1A_H7MGYDSX7_L2_2.fq.gz -O outCflBact_N2_L2_2.fq.gz --unpaired1 --unpairedbact2 --dont_overwrite --length_required 40 --low_complexity_filter --detect_adapter_for_pe --correction --trim_front1 10 --trim_tail1 5 --trim_poly_g --overrepresentation_analysis --dedup
