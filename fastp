@@ -1,5 +1,6 @@
 The preprocessing for FastQ files was provided by this tool: 
 https://github.com/OpenGene/fastp.git
+
 command line
 #newis1.sh_bacteriocytes november 
 fastp -i CflBact2_EKDL230016317-1A_H7LCTDSX7_L2_1.fq.gz -o outCflBact_N1_L2_1.fq.gz -I CflBact2_EKDL230016317-1A_H7LCTDSX7_L2_2.fq.gz -O outCflBact_N1_L2_2.fq.gz --unpaired1 --unpaired_bact1 --dont_overwrite --length_required 40 --low_complexity_filter --detect_adapter_for_pe --correction --trim_front1 10 --trim_tail1 5 --trim_poly_g --overrepresentation_analysis --dedup  
@@ -24,3 +25,12 @@ fastp -i CflStg11_EKDL230016319-1A_H7MGYDSX7_L2_1.fq.gz -o outCflStg11_N3_L2_1.f
 
 #newis8.sh_stg4
 fastp -i Cflstg4_EKDL230007045-1A_HCG3YDSX7_L1_1.fq.gz -o outCflstg4_June_L1_1.fq.gz -I Cflstg4_EKDL230007045-1A_HCG3YDSX7_L1_2.fq.gz -O outCflstg4_June_L1_2.fq.gz --unpaired1 --unpairedstg4 --dont_overwrite --length_required 40 --low_complexity_filter --detect_adapter_for_pe --correction --trim_front1 10 --trim_tail1 5 --trim_poly_g --overrepresentation_analysis --dedup
+
+
+<details>
+<summary>Click to toggle contents of `code`</summary>
+
+```
+<fastp -i Cflstg4_EKDL230007045-1A_HCG3YDSX7_L1_1.fq.gz -o outCflstg4_June_L1_1.fq.gz -I Cflstg4_EKDL230007045-1A_HCG3YDSX7_L1_2.fq.gz -O outCflstg4_June_L1_2.fq.gz --unpaired1 --unpairedstg4 --dont_overwrite --length_required 40 --low_complexity_filter --detect_adapter_for_pe --correction --trim_front1 10 --trim_tail1 5 --trim_poly_g --overrepresentation_analysis --dedup>
+```
+</details>
