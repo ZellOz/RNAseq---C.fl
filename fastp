@@ -1,3 +1,8 @@
+<details>
+<summary>Summary text.</summary>
+<code style="white-space:nowrap;">Hello World, how is it going?</code>
+</details>
+
 The preprocessing for FastQ files was provided by this tool: 
 https://github.com/OpenGene/fastp.git
 
