@@ -1,2 +1,5 @@
-STAR: 
+STAR for whole genome mapping
 * https://github.com/alexdobin/STAR/tree/master
+
+Kallisto for quasi-mapping onto the transcriptome file
+* https://pachterlab.github.io/kallisto/
