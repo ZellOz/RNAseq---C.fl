@@ -1,6 +1,5 @@
 STAR for whole genome mapping
 * https://github.com/alexdobin/STAR/tree/master
-
 #command line for the index
 'STAR --runThreadN N --runMode genomeGenerate --genomeDir ~/path/file --genomeFastaFiles ~/path/Cflgenome.fna --sjdbGTFfile ~/path/Cflgenome.gtf --sjdbOverhang 100 --genomeSAindexNbases 9 --outFileNamePrefix GCA_7.5'
 #command line for the alignment
