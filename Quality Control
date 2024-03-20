@@ -1,0 +1,5 @@
+It has been performed in every steps, from library preperation to alignment.
+
+RIN:
+Fast QC: The quality control of the data was checked with this tool: https://github.com/s-andrews/FastQC.git
+SamTool: 
