@@ -2,5 +2,9 @@
 The preprocessing for FastQ files was provided by this tool: 
 https://github.com/OpenGene/fastp.git
 
-'fastp -I Cfl*.fq.gz -o outCfl*fq.gz -I Cfl*fq.gz -O outCfl*fq.gz --unpaired1 --unpaired* --dont_overwrite --length_required 40 -low_compşexity_filter --detect_adapter_for_pe --correction --trim_front 10 --trim_tail 5 --trim_poly_g --overrepresentation_analysis --dedup'
+'fastp -I Cfl*.fq.gz -o outCfl*fq.gz -I Cfl*fq.gz -O outCfl*fq.gz --unpaired1 --unpaired* --dont_overwrite --trim_front1 5 --trim_poly_g --detect_adapter_for_pe --dedup --correction --length_required 40 --low_complexity_filter --overrepresentation_analysis -h report_Cfl*' 
+
+
+  
+
 
