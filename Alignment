@@ -1,10 +1,17 @@
-STAR for whole genome mapping
+!!!STAR for whole genome mapping
 * https://github.com/alexdobin/STAR/tree/master
 #command line for the index
 'STAR --runThreadN N --runMode genomeGenerate --genomeDir ~/path/file --genomeFastaFiles ~/path/Cflgenome.fna --sjdbGTFfile ~/path/Cflgenome.gtf --sjdbOverhang 100 --genomeSAindexNbases 9 --outFileNamePrefix GCA_7.5'
 #command line for the alignment
 'STAR runThreadN N --genomeDir ~/Xfile --readFilesIn ~/outCfl*fq.gz,[~/outCfl*fq.gz] ~/outCfl*fq.gz,[~/outCfl*.fq.gz --readFilesCommand zcat --outSAMtype BAM SortedByCoordinate --quantMode GeneCounts --outFilterMultimapNmax 2 --outFileNamePrefix ~/Xsample'
+#We were not able to continue downstream analysis with RSEM, so we abandoned STAR. 
 
-
-KALLİSTO for quasi-mapping onto the transcriptome file
+!!!KALLİSTO for quasi-mapping onto the reference transcript file
 * https://pachterlab.github.io/kallisto/
+#command line for Host, Camponotus floridanus
+'conda activate rnaseq'
+'kallisto index -i transcripts2.idx ~/*Cflo_v7.5_rna.fna.gz'
+'kallisto quant -i ~/transcripts2.idx -o output -b 100 -t 16 --rf-stranded ~/fastp/*read1.fq.gz ~/fastp/*read2.fq.gz'
+
+
+!!! For endosymbiont, Blochmannia strain, We mapped the reads using Bowtei2 at the Geneious Software, since the strain does not have a proper transcript file. 
