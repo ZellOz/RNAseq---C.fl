@@ -1,2 +1,42 @@
 This analysis was performed on the DESeq2 package in R. 
 https://bioconductor.org/packages/release/bioc/vignettes/DESeq2/inst/doc/DESeq2.html 
+
+samples <- c("sample1", "sample2", "sample3", "sample4", "sample5", "sample6")
+quant_files <- file.path("~/kallisto/", samples, "abundance.tsv")
+names(quant_files) <- paste0("sample", 1:6)
+all(colnames(samples) %in% row.names(quant_files))
+View(quant_files)
+
+gtf <- rtracklayer::import("/genomic.gtf")
+colnames(gtf)
+gtf_df <- as.data.frame(gtf)
+tx2gene <- gtf_df %>% select("gene_id", "transcript_id")
+
+tx2gene <- unique(tx2gene[, c("transcript_id", "gene_id")])
+names(tx2gene)
+
+txi.kallisto.tsv <- tximport(quant_files, type = "kallisto", tx2gene = tx2gene, ignoreAfterBar = TRUE)
+
+samptab_hostMF <- data.frame(tissue = factor(c("b", "b", "b", "c", "c", "c")), batch = factor(c("B1", "B2", "B3")))
+B1 <- c("sample1", "sample4")
+B2 <- c("sample2", "sample5")
+B3 <- c("sample3", "sample6")
+
+ddsTxi_hostMF <- DESeqDataSetFromTximport(txi.kallisto.tsv,
+                                           colData = samptab_hostMF,
+                                           design = ~ tissue)
+ddsTxiMF <- ddsTxi_hostMF[rowSums(counts(ddsTxi_hostMF)) >= 10, ]
+
+design(ddsTxiMF) <- formula(~ batch + tissue)
+ddsMF <- DESeq(ddsTxiMF)
+resMF <- results(ddsMF)
+dds_batch <- DESeq(ddsMF, test="LRT", reduced = ~batch)
+res_batch <- results(dds_batch)
+
+resOrderBatch <- res_batch[order(res_batch$pvalue),]
+write.csv(as.data.frame(resOrderBatch),
+          file="X.csv")
+
+
+
+
