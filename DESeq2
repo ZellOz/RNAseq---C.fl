@@ -60,7 +60,7 @@ fc <- featureCounts(files = bam.files,
 
 write.csv(count_matrix, "Bloch_gene_counts.csv")
 
-count <- read.csv("Bloch_gene_counts.txt", sep=",", header=TRUE, row.names=1)
+count <- read.csv("Bloch_gene_counts.csv", sep=",", header=TRUE, row.names=1)
 
 coldata <- data.frame(
   row.names = colnames(count),
