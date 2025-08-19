@@ -39,4 +39,46 @@ write.csv(as.data.frame(resOrderBatch),
 
 
 
+------------------------------------------------------------
+!!! For endosymbiont Blochmannia 
+
+bam.files <- c("BlochBac2.sorted.bam","BlochBac3.sorted.bam","BlochBac4.sorted.bam","BlochCap2.sorted.bam"//
+"BlochCap3.sorted.bam","BlochCap4.sorted.bam")
+
+#convert
+gffread sequence.gff3 -T -o blochmannia.gtf
+
+gtf.file <- "/path/blochmannia.gtf"
+
+#featureCounts 
+fc <- featureCounts(files = bam.files,
+                    annot.ext = gtf.file,
+                    isGTFAnnotationFile = TRUE,
+                    isPairedEnd = TRUE,
+		    GTF.featureType = "transcript",	   
+                    nthreads = 16)
+
+write.csv(count_matrix, "Bloch_gene_counts.csv")
+
+count <- read.csv("Bloch_gene_counts.txt", sep=",", header=TRUE, row.names=1)
+
+coldata <- data.frame(
+  row.names = colnames(count),
+  tissue = c("Bacteriocyte", "Bacteriocyte", "Bacteriocyte", "Capsule", "Capsule", "Capsule"))
+
+coldata$tissue <- factor(coldata$tissue)
+
+dds <- DESeqDataSetFromMatrix(countData = count,
+                              colData = coldata,
+                              design= ~ tissue)
+
+dds <- DESeq(dds)
+resultsNames(dds) # lists the coefficients
+res <- results(dds, name="tissue_Capsule_vs_Bacteriocyte")
+
+
+
+
+
+
 
