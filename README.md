@@ -3,7 +3,7 @@ This study was performed to find the candidate genes that drive the embryonic no
 
 This is presented in our manuscripts:  [Journal]
 
-[Graphical Abstract] 
+![Graphical Abstract](https://github.com/ZellOz/RNAseq---C.fl/blob/main/GraphicalAbstract.png)
 
 Data are avaliable on the XXX
 
