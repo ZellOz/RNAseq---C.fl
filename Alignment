@@ -15,6 +15,6 @@
 'kallisto quant -i ~/transcripts2.idx -o output -b 100 -t 16 --rf-stranded ~/fastp/*read1.fq.gz ~/fastp/*read2.fq.gz'
 
 
-!!! For endosymbiont **Blochmannia**, the cleaned reads were mapped using Bowtei2, since a reference transcript data is not available for the bacteria.
+!!! For endosymbiont *Blochmannia*, the cleaned reads were mapped using Bowtei2, since a reference transcript data is not available for the bacteria.
 'bowtie2-build /path/Bl_seq.fa /path/Bloch_index'
 'bowtie2 -x /path/Bloch_index --very-sensitive --rf -1 Ü/SampX_read1.fq -2 ~/SampX_read2.fq -S ~/SampX.sam'
