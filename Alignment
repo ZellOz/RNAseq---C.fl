@@ -1,4 +1,4 @@
-!!!STAR for whole genome mapping
+!!! STAR for whole genome mapping
 * https://github.com/alexdobin/STAR/tree/master
 #command line for the index
 'STAR --runThreadN N --runMode genomeGenerate --genomeDir ~/path/file --genomeFastaFiles ~/path/Cflgenome.fna --sjdbGTFfile ~/path/Cflgenome.gtf --sjdbOverhang 100 --genomeSAindexNbases 9 --outFileNamePrefix GCA_7.5'
@@ -6,7 +6,8 @@
 'STAR runThreadN N --genomeDir ~/Xfile --readFilesIn ~/outCfl*fq.gz,[~/outCfl*fq.gz] ~/outCfl*fq.gz,[~/outCfl*.fq.gz --readFilesCommand zcat --outSAMtype BAM SortedByCoordinate --quantMode GeneCounts --outFilterMultimapNmax 2 --outFileNamePrefix ~/Xsample'
 #We were not able to continue downstream analysis with RSEM, so we abandoned STAR. 
 
-!!!KALLİSTO for quasi-mapping onto the reference transcript file
+
+!!! KALLİSTO for quasi-mapping onto the reference transcript file
 * https://pachterlab.github.io/kallisto/
 #command line for Host, Camponotus floridanus
 'conda activate rnaseq'
@@ -14,4 +15,6 @@
 'kallisto quant -i ~/transcripts2.idx -o output -b 100 -t 16 --rf-stranded ~/fastp/*read1.fq.gz ~/fastp/*read2.fq.gz'
 
 
-!!! For endosymbiont, Blochmannia strain, We mapped the reads using Bowtei2 at the Geneious Software, since the strain does not have a proper transcript file. 
+!!! For endosymbiont **Blochmannia**, the cleaned reads were mapped using Bowtei2, since a reference transcript data is not available for the bacteria.
+'bowtie2-build /path/Bl_seq.fa /path/Bloch_index'
+'bowtie2 -x /path/Bloch_index --very-sensitive --rf -1 Ü/SampX_read1.fq -2 ~/SampX_read2.fq -S ~/SampX.sam'
